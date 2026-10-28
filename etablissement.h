@@ -33,7 +33,7 @@ int chargement(int tabA[], int tabC[], int tPhys);
    \param[in] tabCoeff : tableau des crédits
    \param[in] nbAdherent : nombre d'adhrents contenues dans tabA
 */
-void affichLesAdherents(int tabA[], int tabCo[], int nbAdherent);
+void affichLesAdherents(int tabA[], int tabC[], int nbAdherent);
 
 
 /**

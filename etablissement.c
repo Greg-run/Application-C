@@ -14,7 +14,8 @@ void afficheMenu(void){
     printf("6. modifier un statut\n");
     printf("7. inscription à une acitivité\n");
     printf("8. fréquentation des activités\n");
-    printf("9. quitter\n");
+    printf("9. supprimer un adhérent\n");
+    printf("10. quitter\n");
 }
 
 //Grégoire:
@@ -32,26 +33,23 @@ void gestionEtablissement(void){
     afficheMenu();
     printf("votre choix : ");
     scanf("%d", &choix);
-    while (choix != 9){
+    while (choix != 10){
         if (choix == 1){
             // A COMPLETER
             printf("pas encore codé ...\n");
         }
         else if (choix == 2){
-            // A COMPLETER
-            printf("pas encore codé ...\n");
+            ajouteAdherent();
         }
         else if (choix == 3){
             // A COMPLETER
             printf("pas encore codé ...\n");
         }
         else if (choix == 4){
-            // A COMPLETER
-            printf("pas encore codé ...\n");
+            affichLesAdherents(tabA, tabC, nbAdherent);
         }
         else if (choix == 5){
-            // A COMPLETER
-            printf("pas encore codé ...\n");
+            crediterAdherent(tabA, tabC, nbAdherent);
         }
         else if (choix == 6){
             // A COMPLETER
@@ -145,7 +143,7 @@ int rechPos(int tab[], int tlog, int val, int *trouve){
     }
   }
   *trouve = 0;
-  return ;
+  return -1;
 }
 
 //gréoire:
@@ -153,14 +151,13 @@ void crediterAdherent(int tabA[], int tabC[], int nbAdherent)
 {
   int adherent, credit, pos, trouve;
 
-  printf("N° de matière à modifier :");
+  printf("N° d'adhérent :");
   scanf("%d", &adherent);
-  printf("Nouveau coefficiant à modifier :");
+  printf("Nouveau crédit:");
   scanf("%d", &credit);
 
-  pos = rechPosIns(tabA, nbAdherent, adherent, &trouve);
-  if (trouve == 0)
-  {
+  pos = rechPos(tabA, nbAdherent, adherent, &trouve);
+  if (trouve == 0){
     printf("Adherent non trouvée");
     return;
   }
